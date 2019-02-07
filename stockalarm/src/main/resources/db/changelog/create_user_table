@@ -1,0 +1,27 @@
+<changeSet id="create_user_table" author="aobaj">
+    <createTable tableName="USR_USER"
+                 remarks="A table to contain all the Users of the system">
+        <column name="ID" type="int">
+            <constraints nullable="false" primaryKey="true"/>
+        </column>
+        <column name="FIRST_NAME" type="varchar(16)">
+            <constraints nullable="true"/>
+        </column>
+        <column name="LAST_NAME" type="varchar(16)">
+            <constraints nullable="true"/>
+        </column>
+        <column name="USERID" type="varchar(16)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="PASSWORD" type="varchar(8)">
+            <constraints nullable="false"/>
+        </column>
+    </createTable>
+
+    <addUniqueConstraint columnNames="USERID, PASSWORD"
+                         constraintName="UNIQUE_USER"
+                         tableName="USR_USER"
+    />
+
+</changeSet>
+
