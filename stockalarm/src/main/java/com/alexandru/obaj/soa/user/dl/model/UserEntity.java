@@ -2,6 +2,7 @@ package com.alexandru.obaj.soa.user.dl.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,9 +22,9 @@ import javax.persistence.Table;
         query = "from UserEntity u WHERE u.userId =:userId AND u.password =:password"), @NamedQuery(name = "UserEntity.findByUserId",
         query = "from UserEntity u WHERE u.userId =:userId")})
 @Data
+@EqualsAndHashCode(of = {"id", "userId"})
 @AllArgsConstructor
 public class UserEntity {
-
 
     @Id
     @Column(name = "ID", nullable = false)

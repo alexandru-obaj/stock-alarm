@@ -3,6 +3,9 @@ package com.alexandru.obaj.soa.user.bl;
 import com.alexandru.obaj.soa.user.dl.model.UserEntity;
 import com.alexandru.obaj.soa.user.sl.model.UserDto;
 
+/**
+ * Utility class for conversion between REST exchanged POJOs and JPA entities.
+ */
 public class UserConverter {
 
     public static UserEntity toEntity(UserDto dto) {

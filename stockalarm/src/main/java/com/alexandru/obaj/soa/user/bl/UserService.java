@@ -11,11 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 
-
 /**
  * Business layer component managing User related operations.
  */
 @Service
+@Transactional
 public class UserService implements IUserService {
 
     private IUserDao userDao;
@@ -34,7 +34,6 @@ public class UserService implements IUserService {
     }
 
     @Override
-    @Transactional
     public void loginUser(UserLoginDto loginRequest) {
         validateUserLoginRequest(loginRequest);
         Assert.notNull(userDao.findByUserIdAndPassword(loginRequest.getUserId(), loginRequest.getPassword()), "Username or password was incorrect");
