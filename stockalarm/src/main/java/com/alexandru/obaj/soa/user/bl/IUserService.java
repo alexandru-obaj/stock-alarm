@@ -23,4 +23,11 @@ public interface IUserService {
      */
     void loginUser(UserLoginDto loginRequest);
 
+    /**
+     * Retrieves a User by given ID.
+     * @param userId the User ID
+     * @return JSON representation of the User
+     */
+    UserDto retrieveUser(String userId);
+
 }

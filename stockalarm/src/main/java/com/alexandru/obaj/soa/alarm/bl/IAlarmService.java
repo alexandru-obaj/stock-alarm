@@ -1,5 +1,6 @@
 package com.alexandru.obaj.soa.alarm.bl;
 
+import com.alexandru.obaj.soa.alarm.dl.model.AlarmEntity;
 import com.alexandru.obaj.soa.alarm.sl.model.AlarmDto;
 
 import java.util.List;
@@ -40,5 +41,12 @@ public interface IAlarmService {
      * @param userId the User identifier
      */
     void deleteUserAlarms(String userId);
+
+    /**
+     * Retrieve all defined alarms.
+     *
+     * @return a list of Alarm JSON representations
+     */
+    List<AlarmDto> retrieveAllAlarms();
 
 }

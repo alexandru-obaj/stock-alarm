@@ -13,6 +13,9 @@ public class AlarmConverter {
     }
 
     public static AlarmDto fromEntity(AlarmEntity entity) {
-        return new AlarmDto(entity.getUser().getUserId(), entity.getStockId(), entity.getIntialValue(), entity.getIncreasePercentage(), entity.getDecreasePercentage());
+        AlarmDto dto = new AlarmDto(entity.getUser().getUserId(), entity.getStockId(), entity.getIntialValue(),
+                entity.getIncreasePercentage(), entity.getDecreasePercentage());
+        dto.setEmail(entity.getUser().getEmail());
+        return dto;
     }
 }

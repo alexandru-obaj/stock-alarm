@@ -13,6 +13,10 @@ public class UserConverter {
     }
 
     public static UserDto fromEntity(UserEntity entity) {
-        return new UserDto(entity.getUserId(), entity.getFirstName(), entity.getLastName(), entity.getPassword(), entity.getEmail());
+        UserDto result = null;
+        if(entity != null) {
+            result = new UserDto(entity.getUserId(), entity.getFirstName(), entity.getLastName(), entity.getPassword(), entity.getEmail());
+        }
+        return result;
     }
 }

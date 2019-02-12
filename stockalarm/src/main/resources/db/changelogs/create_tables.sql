@@ -30,4 +30,4 @@ CREATE UNIQUE INDEX IF NOT EXISTS uq_soa_user
 CREATE UNIQUE INDEX IF NOT EXISTS uq_soa_alarm
     ON soa_alarm
     USING BTREE
-    (userid, stockid COLLATE pg_catalog."default");
+    (soa_user_id, stockid COLLATE pg_catalog."default");

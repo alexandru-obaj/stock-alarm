@@ -39,6 +39,11 @@ public class UserService implements IUserService {
         Assert.notNull(userDao.findByUserIdAndPassword(loginRequest.getUserId(), loginRequest.getPassword()), "Username or password was incorrect");
     }
 
+    @Override
+    public UserDto retrieveUser(String userId) {
+        return UserConverter.fromEntity(userDao.findByUserId(userId));
+    }
+
     private void validateUserCreationRequest(UserDto creationRequest) {
         Assert.notNull(creationRequest, "Request can not be null");
         Assert.hasText("UserId is mandatory", creationRequest.getUserId());

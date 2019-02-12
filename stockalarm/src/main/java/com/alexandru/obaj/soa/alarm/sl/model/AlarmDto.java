@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 public class AlarmDto {
 
+    // Property should NOT be serialized
     @JsonProperty(value = "id", access = JsonProperty.Access.READ_ONLY)
     private int id;
 
@@ -25,6 +26,10 @@ public class AlarmDto {
 
     @JsonProperty("decreasePercentage")
     private int decreasePercentage;
+
+    // Property should NOT be serialized
+    @JsonProperty(value = "email", access = JsonProperty.Access.READ_ONLY)
+    private String email;
 
     @JsonCreator
     public AlarmDto(@JsonProperty("userId") String userId, @JsonProperty("stockId") String stockId, @JsonProperty("initialValue") int initialValue,

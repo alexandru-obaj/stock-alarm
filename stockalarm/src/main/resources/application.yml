@@ -1,6 +1,11 @@
-
+server:
+  port: 8639
 
 spring:
+  application:
+    name: 'stock-alarm'
+    id: 'soa'
+
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
@@ -9,3 +14,24 @@ spring:
 
   liquibase:
     change-log: classpath:db/db.changelog-master.yaml
+
+soa:
+  scheduler:
+    reload-interval: 900000
+  async:
+    corePoolSize: 25
+    maxPoolSize: 25
+    queueSize: 1000
+  mail:
+    smtp-port: 25
+    host: 127.0.0.1
+    from: noreply@stock-alarm.com
+    user: testuser
+    password: password
+    transport:
+      protocol: smtp
+
+  http:
+    base-url: https://api.iextrading.com/1.0/
+    ref-data-symbols-sufix: ref-data/symbols
+    symbol-prioe-sufix: stock/{symbol}/price
